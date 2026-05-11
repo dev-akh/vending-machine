@@ -1,0 +1,108 @@
+networks:
+  vone:
+    driver: bridge
+
+volumes:
+  mysql:
+    driver: local
+
+services:
+  nginx:
+    build:
+      context: ./.nginx/
+      dockerfile: ./nginx.dockerfile
+    container_name: vone_nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    depends_on:
+      - app
+      - mysql
+      - phpmyadmin
+    networks:
+      - vone
+
+  app:
+    build:
+      context: ./
+      dockerfile: ./.docker/php/Dockerfile.local
+    container_name: vone_app
+    ports:
+      - "${ADMIN_APP_PORT:-8000}:8000"
+      - "${VITE_PORT:-5173}:${VITE_PORT:-5173}"
+    tty: true
+    volumes:
+      - .:${WORKDIR:-/var/www/html}
+      - ./vendor:${WORKDIR:-/var/www/html}/vendor
+      - ./node_modules:${WORKDIR:-/var/www/html}/node_modules
+    networks:
+      - vone
+    depends_on:
+      - mysql
+
+  mysql:
+    image: mysql/mysql-server:${MYSQL_VERSION:-8.0}
+    container_name: vone_mysql
+    ports:
+      - "${FORWARD_DB_PORT:-3306}:3306"
+    environment:
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_USER: ${DB_USERNAME}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${PMA_ROOT_PASSWORD}
+    volumes:
+      - ${DB_VOLUME_LOCAL:-./database/mysql-test-data}:/var/lib/mysql
+    networks:
+      - vone
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-p${DB_PASSWORD}"]
+      retries: 3
+      interval: 30s
+      timeout: 5s
+      start_period: 40s
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: vone_phpmyadmin
+    platform: linux/amd64
+    environment:
+      PMA_ARBITRARY: 1
+      MYSQL_USER: ${PMA_USER}
+      MYSQL_PASSWORD: ${PMA_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${PMA_ROOT_PASSWORD}
+      MAX_EXECUTION_TIME: ${PMA_MAX_EXECUTION_TIME}
+      MEMORY_LIMIT: ${PMA_MEMORY_LIMIT}
+      UPLOAD_LIMIT: ${PMA_UPLOAD_LIMIT}
+    ports:
+      - "${PMA_PORT:-8081}:80"
+    depends_on:
+      - mysql
+    networks:
+      - vone
+    restart: unless-stopped
+
+  redis:
+    image: redis:alpine
+    container_name: vone_redis
+    ports:
+      - ${FORWARD_REDIS_PORT:-6379}:6379
+    volumes:
+      - ${REDIS_VOLUME_LOCAL:-./redis-data}:/data
+    networks:
+      - vone
+    healthcheck:
+      test:
+        - CMD
+        - redis-cli
+        - ping
+      retries: 3
+      timeout: 5s
+
+  redis-insight:
+    image: redis/redisinsight:latest
+    container_name: vone_redisinsight
+    restart: always
+    ports:
+      - ${FORWARD_REDIS_INSIGHT_PORT:-5540}:5540
+    networks:
+      - vone

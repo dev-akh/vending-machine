@@ -1,0 +1,131 @@
+# Accepted values: 8.3 - 8.2
+ARG PHP_VERSION=8.3
+ARG FRANKENPHP_VERSION=latest
+ARG COMPOSER_VERSION=latest
+
+FROM dunglas/frankenphp:${FRANKENPHP_VERSION}-php${PHP_VERSION}
+
+ENV ROOT=/var/www/html
+
+ARG WWWUSER=www-data
+ARG WWWGROUP=1000
+ARG USER=www-data
+ARG TZ=UTC
+ARG APP_DIR=${ROOT}
+ARG NODE_VERSION=24
+
+WORKDIR ${ROOT}
+
+RUN apt-get update; \
+    apt-get upgrade -yqq; \
+    apt-get install -yqq --no-install-recommends --show-progress \
+    apt-utils \
+    curl \
+    wget \
+    nano \
+    ca-certificates \
+    git \
+    unzip \
+    libpq-dev \
+    supervisor \
+    libsodium-dev \
+    nodejs \
+    npm \
+    gnupg \
+    default-mysql-client \
+    net-tools
+
+# Install PHP extensions (included with dunglas/frankenphp)
+RUN install-php-extensions \
+    pcntl \
+    mbstring \
+    bcmath \
+    sockets \
+    opcache \
+    exif \
+    pdo \
+    pdo_mysql \
+    zip \
+    intl \
+    gd \
+    redis \
+    memcached \
+    ldap \
+    && apt-get -y autoremove \
+    && apt-get clean \
+    && docker-php-source delete \
+    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
+    && rm /var/log/lastlog /var/log/faillog
+
+# Install Node.js
+RUN curl -fsSL https://deb.nodesource.com/setup_${NODE_VERSION}.x | bash - \
+    && apt-get install -y nodejs \
+    && npm cache clean --force \
+    && hash -r \
+    && npm install -g npm@latest
+
+# Install Composer
+COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
+
+# Set up user and permissions
+RUN groupadd --force -g ${WWWGROUP} ${USER} \
+    && useradd -ms /bin/bash --no-user-group -g ${WWWGROUP} -u ${WWWUSER} ${USER} 2>/dev/null || true \
+    && chown -R ${USER}:${USER} ${ROOT} /var/log /var/run \
+    && chmod -R a+rwx ${ROOT} /var/log /var/run
+
+# Start with base PHP config
+COPY ./.docker/php/php.ini /usr/local/etc/php/
+COPY ./.docker/etc/supervisor.d/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+
+COPY --chmod=755 ./.docker/run.sh /usr/local/bin/run.sh
+
+# Copy application files
+COPY --chown=${USER}:${USER} . .
+
+RUN chown -R ${USER}:${USER} ${ROOT} /var/log /var/run
+
+USER ${USER}
+
+# Install Composer dependencies
+# RUN composer update
+RUN composer install \
+    --no-interaction \
+    --optimize-autoloader \
+    --no-ansi
+
+# Generate the autoloader
+RUN composer dump-autoload --optimize
+
+RUN chown -R ${USER}:${USER} ${ROOT}/storage \
+    && chown -R ${USER}:${USER} ${ROOT}/bootstrap/cache \
+    && chown ${USER}:${USER} ${ROOT}/.env \
+    && chmod -R 775 ${ROOT}/storage
+
+USER ${USER}
+# Verify vendor directory contents
+RUN echo "Vendor directory contents:" && ls -la vendor
+
+# Install and build frontend assets
+RUN npm ci --cache /tmp/.npm --loglevel=error --no-audit \
+    && npm install --cache /tmp/.npm --save-dev chokidar \
+    && npm run build
+
+# Set up Laravel storage and cache
+RUN mkdir -p \
+    storage/framework/{sessions,views,cache,testing} \
+    storage/logs  \
+    storage/app/public \
+    bootstrap/cache && chmod -R a+rw storage
+
+COPY --chown=${USER}:${USER} . ${ROOT}
+
+USER ${USER}
+
+# Expose Ports
+EXPOSE 8000
+EXPOSE 443
+EXPOSE 443/udp
+
+# Start Supervisor.
+CMD ["/bin/sh", "-c", "/usr/local/bin/run.sh && /usr/bin/supervisord", "-n", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
+
