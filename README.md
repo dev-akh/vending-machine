@@ -12,19 +12,44 @@
 - `composer install`
 - `npm install` 
 - `npm run build`
-- `php artisan migrate`
+- `php artisan migrate --seed`
+- `php artisan optimize`
+- `php artisan storage:link`
 
 ### With Docker conversion
-- `docker-compose exec app php artisan migrate`
+- `docker-compose exec app php artisan migrate --seed`
 - `docker-compose exec app php artisan optimize`
 - `docker-compose exec app php artisan storage:link`
 
-Access Panel:
+### Access Panel:
 
+#### Admin Account
 -   Url: `http://locahost:8000/login`
 -   Email: `admin@localhost.com`
 -   Password: `@dmin123`
+#### User Account
+-   Url: `http://locahost:8000/login`
+-   Email: `user@localhost.com`
+-   Password: `password`
 
+## API Documentation
+- API Documentation: [Click Here](./docs/API_README.md)
+- Postman Exported File : [Click Here](./docs/Vending_Machine.postman_collection.json), 
+After Download postman collection file and import it to your postman to test the API.
+```
+Configuration need to update
+{{baseurl}} - Base URL (http://localhost:8000/)
+{{version}} - API Version (v1)
+```
+
+## Test Result
+
+```
+php artisan test
+(or with docker conversion)
+docker-compose exec -u root app php artisan test
+```
+![alt text](image.png)
 
 # Git Best Practices
 
@@ -70,3 +95,7 @@ For now, just put a short and concise branch name such as:
 -   Enforce code reviews
 -   Maintain consistent code style and formatting
 -   Commit to feature branches, not directly to _dev_
+
+## Developer Info
+- Name: `Aung Kyaw Htwe (Austine)`
+- Email: `dev.aungkyawhtwe@gmail.com`

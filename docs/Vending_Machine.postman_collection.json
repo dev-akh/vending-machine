@@ -1,0 +1,1077 @@
+{
+	"info": {
+		"_postman_id": "f3a6c282-e683-42b3-b024-44376844b5d5",
+		"name": "Vending Machine",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13225641"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"admin@localhost.com\",\n    \"password\": \"@dmin123\",\n    \"remember_me\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/{{version}}/auth/login",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"{{version}}",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\":\"admin@localhost.com\",\n    \"password\": \"@dmin123\",\n    \"remember_me\": true\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseurl}}/{{version}}/auth/login",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"{{version}}",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"domain": "",
+									"path": ""
+								}
+							],
+							"body": "{\n    \"access_token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIwMTllMTgyMC0wMTZhLTcwNjItOWI2MC02NmM2NWYzZWYzNTgiLCJqdGkiOiI4Mjk3YTYwNmM4ZWViZGMyODM4YjA1MzU2NzBjZTU5YjQwNTY2NjE4N2ZlNmI5ZDBlNWVhZWM3YWFmZTMzYjk2MzVlNjU5YjFmMzk0ZDcxNiIsImlhdCI6MTc3ODUyMzI0Mi41ODk3MzMsIm5iZiI6MTc3ODUyMzI0Mi41ODk3MzgsImV4cCI6MTgxMDA1OTI0Mi41ODA2NDYsInN1YiI6IjEiLCJzY29wZXMiOltdfQ.E93pOrpZ0j6r_PGn8JkYUhJmzVvUpE1im9vZIp8V_fPUQgN7Hv4ZpcaHj6Z1KBKezlSDDImTeW6a1PxpcJ58faLj_CgoFLQowgmhEbFh4tKfCImOZ5VyRjaTHFdc5dz_xXHxgeutc79jAakNJe7nZizy-vEifc9XHLYoXR0eSfbIDM1kTqUMurLYryr-9UCxSNJII2A15yVKAOetJdWFeAFU-TIPwMJZPfue-1pa3VYjklHqMUtM2-LXl8h1YHe5sG_2pta5cZCN9pzVBFYMO-1ZRjbSYhFgo3QJLjJDvKyb176mwILb2-faCh2fPSA4jKdqf8MkTRXLZjpfnwgVrp691y1LLKbTR9pTvF6iRWGFITkGXzjHecdEpjqGUjP9fOlQtLyDKLYExZPbvSuxvHRDcSQEr2N3kvMdcASzHza_OhFk4asxQqyY-tKTvL9_XnMkxIjc2b2YqDIVhhTJ8RfeI6OMGTtx3iigR-EwPaduM1x-eBpdK4J-w9vIXNwRUoXeh9kwnvJyi4ArK6glZ2nwH-1yY-jL4wwZhEaRC_aEBZXkdVhPLsNUuVyrRElaYE0vkRuT3Nvnv7NY-NosqQy91uCDEtGQ_aJChPVX8QObGHuP0o_AQJPv5D6CbgzEU7EYxQP2HT5GgIwzJSdu8mtFzgAGYZgErnTVIsl0aiU\",\n    \"token_type\": \"Bearer\",\n    \"expires_at\": \"2027-05-11 18:14:02\",\n    \"user\": {\n        \"id\": 1,\n        \"name\": \"Admin User\",\n        \"role\": \"admin\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "OauthToken",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"grant_type\": \"password\",\n    \"client_id\": \"019e1861-3480-71fb-817e-fda41b1e98d7\",\n    \"client_secret\": \"9WpYEnJbj9dav7p7yLQEsQsRFxP4IZ31Y3pUuAm9\",\n    \"username\": \"admin@localhost.com\",\n    \"password\": \"@dmin123\",\n    \"scope\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/oauth/token",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"oauth",
+								"token"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OauthToken",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"grant_type\": \"password\",\n    \"client_id\": \"019e1861-3480-71fb-817e-fda41b1e98d7\",\n    \"client_secret\": \"9WpYEnJbj9dav7p7yLQEsQsRFxP4IZ31Y3pUuAm9\",\n    \"username\": \"admin@localhost.com\",\n    \"password\": \"@dmin123\",\n    \"scope\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/oauth/token",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"oauth",
+										"token"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"domain": "",
+									"path": ""
+								}
+							],
+							"body": "{\n    \"token_type\": \"Bearer\",\n    \"expires_in\": 172800,\n    \"access_token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIwMTllMTg2MS0zNDgwLTcxZmItODE3ZS1mZGE0MWIxZTk4ZDciLCJqdGkiOiJhYmU5YmI1M2UwN2QwOWQwYjhkZjQ5ZDUwMDg4MmEwZjZlMDZkNDZiOWRlNzJhNWMxM2JlZjdlYTk4YjAzMzIyNmUwZjcxYTk4MzBjNWM0MyIsImlhdCI6MTc3ODUyNTY4Ny41Mzk1MjYsIm5iZiI6MTc3ODUyNTY4Ny41Mzk1MzIsImV4cCI6MTc3ODY5ODQ4Ny41Mjc3NjcsInN1YiI6IjEiLCJzY29wZXMiOltdfQ.jFfz1W3PcTU2jSIPJZvE2pRQzQtwSJfMfZFi5EJhJNPwaA_nbnP7dV6DRUf9Sk4hqTcvKyHC1125QjORwbPsvo1K3OLMmZhZlsNMbYNbZ_AOZk5PdYFh1Nh93GKG6lXVOehJXaOq1F_kRrPXoBf0Qieu3usRsoWHAaU_e9qNc6RjPFU3_LA8wPflQsfY5ACFgsnYeydfxHPJYksxFfkuLMLU6z7SEzpo3NG7iZHeUna2lsdPSj_s4DA_gB6MyMcMnnC-ZxePuCFkz0VpzB3vnev0Y80rpXHg8NNz6DSgR8cXMS2aL8d4Ln-xWficsnJ7E7JmCAUa7KEuzt7slb_G8xMW-pqzC0GixqCsu_cZsMXakZ2wcmSFYKgOaYPkUsUcDOWBsPXQ7VPOdTdDuZmXCTh_H1ynVAmBL79D9A6gA1TWg5OMDF9-fOVoTPJMgPCubdO6g3N5-1gqvmckCXlve8zqp6L7wFZwE1hQ54n7Uk7ZpZOsojewDXRHbbQswy6UknG5-dNwmOl8cPaKy-_e-IkfywDgZFLxGB8XprFV6JGAjCwtyaKR675quOicGxs2RAaQAVrZEIJ7e-qKzcQwL8Y6jYn_BCl9ZYCsFGNq7mPCht2tt6s3oS0HBRz3MYioLE6kq4GnLnzYhVJ_298OZ5dlm8RE4gjOkoqS7klorAU\",\n    \"refresh_token\": \"def50200835e4a6ed2525150659ff4a4c0d951e2bda9b2bf027ed6b6824807a478f69d59615933af8aeb1db37337915e1bffb1886e564d64e5622342b219e22345cd10ea0a490b9b691c0111b2939049bbd995eb73302d1fb68e5108ba8a2ded3e3016f736ca35e1c0e6df7fe7263b2bbd36c395da884ecda282dd89f830f2dd8113d59e85ff5624442b644791161bd9440e03784218875ea9267f7a5f9642885c739dd2db5253e6cbc863c4208ddcb8a370be4dbf7909df96bdf02fc701433ae1e4cc772215720ac43ed160fb9c5bb14b102b3fef969bc23611596636d3298673ef5127697fda5958879ed3e0444577de7f694e9a3bbcd068d2c51152e8ecae4f566e0ca11b0fc7370fb5b466020cf8c71768f912ae650a89b8e59d7ef7f1b09052baefdfa5299c38072872e046865d36ea6b7add9dec13648bc08a8324dac10ed5dab0b0b3b1d21e45a91e754c3d9712b0d9db7819d0fa676311eb5ed0af88505655a07352e7b5468ba76f0117da38d6be00be9a37be6b444b6ca6ea666e95377424ca2e17\"\n}"
+						}
+					]
+				},
+				{
+					"name": "RefreshToken",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"grant_type\": \"refresh_token\",\n    \"refresh_token\": \"def50200835e4a6ed2525150659ff4a4c0d951e2bda9b2bf027ed6b6824807a478f69d59615933af8aeb1db37337915e1bffb1886e564d64e5622342b219e22345cd10ea0a490b9b691c0111b2939049bbd995eb73302d1fb68e5108ba8a2ded3e3016f736ca35e1c0e6df7fe7263b2bbd36c395da884ecda282dd89f830f2dd8113d59e85ff5624442b644791161bd9440e03784218875ea9267f7a5f9642885c739dd2db5253e6cbc863c4208ddcb8a370be4dbf7909df96bdf02fc701433ae1e4cc772215720ac43ed160fb9c5bb14b102b3fef969bc23611596636d3298673ef5127697fda5958879ed3e0444577de7f694e9a3bbcd068d2c51152e8ecae4f566e0ca11b0fc7370fb5b466020cf8c71768f912ae650a89b8e59d7ef7f1b09052baefdfa5299c38072872e046865d36ea6b7add9dec13648bc08a8324dac10ed5dab0b0b3b1d21e45a91e754c3d9712b0d9db7819d0fa676311eb5ed0af88505655a07352e7b5468ba76f0117da38d6be00be9a37be6b444b6ca6ea666e95377424ca2e17\",\n    \"client_id\": \"019e1861-3480-71fb-817e-fda41b1e98d7\",\n    \"client_secret\": \"9WpYEnJbj9dav7p7yLQEsQsRFxP4IZ31Y3pUuAm9\",\n    \"scope\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/oauth/token",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"oauth",
+								"token"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "RefreshToken",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"grant_type\": \"refresh_token\",\n    \"refresh_token\": \"def50200835e4a6ed2525150659ff4a4c0d951e2bda9b2bf027ed6b6824807a478f69d59615933af8aeb1db37337915e1bffb1886e564d64e5622342b219e22345cd10ea0a490b9b691c0111b2939049bbd995eb73302d1fb68e5108ba8a2ded3e3016f736ca35e1c0e6df7fe7263b2bbd36c395da884ecda282dd89f830f2dd8113d59e85ff5624442b644791161bd9440e03784218875ea9267f7a5f9642885c739dd2db5253e6cbc863c4208ddcb8a370be4dbf7909df96bdf02fc701433ae1e4cc772215720ac43ed160fb9c5bb14b102b3fef969bc23611596636d3298673ef5127697fda5958879ed3e0444577de7f694e9a3bbcd068d2c51152e8ecae4f566e0ca11b0fc7370fb5b466020cf8c71768f912ae650a89b8e59d7ef7f1b09052baefdfa5299c38072872e046865d36ea6b7add9dec13648bc08a8324dac10ed5dab0b0b3b1d21e45a91e754c3d9712b0d9db7819d0fa676311eb5ed0af88505655a07352e7b5468ba76f0117da38d6be00be9a37be6b444b6ca6ea666e95377424ca2e17\",\n    \"client_id\": \"019e1861-3480-71fb-817e-fda41b1e98d7\",\n    \"client_secret\": \"9WpYEnJbj9dav7p7yLQEsQsRFxP4IZ31Y3pUuAm9\",\n    \"scope\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/oauth/token",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"oauth",
+										"token"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"domain": "",
+									"path": ""
+								}
+							],
+							"body": "{\n    \"token_type\": \"Bearer\",\n    \"expires_in\": 172800,\n    \"access_token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIwMTllMTg2MS0zNDgwLTcxZmItODE3ZS1mZGE0MWIxZTk4ZDciLCJqdGkiOiI1MWRmNmU4MDNkMTk5MTYyMGE2YjQ0ZTgwODViNmQ1MmE3NTRmMGYxZWViZTFlZTM3MTRhNDM1YzJmNmUwOTc0NjlkNzc3Mzg4MGNlNmI5ZCIsImlhdCI6MTc3ODUyNTc0NS41MjcyMDcsIm5iZiI6MTc3ODUyNTc0NS41MjcyMTIsImV4cCI6MTc3ODY5ODU0NS41MTU3NzMsInN1YiI6IjEiLCJzY29wZXMiOltdfQ.Gs7uFL5piONYB5GXBFLwibRGCqDbRSzlitXItDgogD2RpyKwhcZ4N0TOy4kBjOQtsoq3yMpj_-ipbb4Bhlfc59Wov-oxD_a7SitrpFT0x-DdWKQErkk_lyJlu_f0cuq12gPRLeNlIvm0lpSaoRVE6MfvA2R4Qe51pf0saHauhvxmd54OM8YKpMw7NjymXcT7gDapcrJUeHv7fZRTX4RYXq1vqL1Bh72LUSjm9lm4y96lO4zj7dkUvkajeI1deQePi6j8H_5Tk2AWRUSxdKqQcT7f9rc-lBe84A03pb_aXh4jYtsr79WGxs1sFI838Mf5SuWyPdOOCPw5ctPUHxOFsRzoW3LeC9qyOIzC7Lt_ikUbkZM6_SQBBsOazkLasMmnurs0EpCu-vDIHXkMC8ng_5uYRTfGmaleZEzstJjXDaG0QTJ4_Wq2CDSspqYoXoAwDXNtngpwTz5att5vNSFk4E_v-WO-JQ6AoR9REWwpNGZNCZVvxBV9Mc-ETBd1-AqkucqB-ywSAS2dck43JDzFtDdr9IR6hYWMmN-RXDtCKkarVlKtc1c706wmAgseD5wVfAwQk0kpQIr17P8CGNmy-44MIQSUwomEGvfGp49aDMlO5yG-XoYDdckCJPHiPLNxOdiyffaIjXAtOyGZ-8S_yNowDmB4VeAJz1_CuKS1jOI\",\n    \"refresh_token\": \"def50200bd15327fba4b70d06f46738755d835e8bd1d166f2413eedd60e86b6005f8853ceb05dbad8281c9714985b9c971baf963ea447b3b8eeccdae1c0e93bac1653e5ab8c0be784d30494b298fe1050bde66b6bd539e685dcfef264e6d5ea1ebdfafb58265df1b1f9b8435e150bb617cdd12e95ac3e31721c85747801bbe88a19d5b2941799b31d8996838e6710e5fd445246547087ce454030065f14732d11eb9bb0695407e4d72626d0761486070a8ad75a3e04a92a582c33ecd12befd5b7ea5a0303005047cc69534451ef37773d9723c2077060883274787465495c9c7cb8cdedc79899fefa4bf80409dd7c4da3bb9ef60e5bf3c0619e5f00df41421f4d3b0ca3ec8b5edc0ff50c7214f3dfb16dc10f75cfb1db59fb6800b674a9141086360908613585479c7c3acbde856d5db344786315f20a8db9a869bb8f70830aa9d055425ad914b2cb88561e4c98bde20f35064d47231cebbc9c975d83bbd58c2438627b42f56e3fdde20c13e44ee1c0e9125b3bb0e9a3ba5343f6b3b7aeaf1d3225813760c7c\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Me",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIwMTllMTg2MS0zNDgwLTcxZmItODE3ZS1mZGE0MWIxZTk4ZDciLCJqdGkiOiI1MWRmNmU4MDNkMTk5MTYyMGE2YjQ0ZTgwODViNmQ1MmE3NTRmMGYxZWViZTFlZTM3MTRhNDM1YzJmNmUwOTc0NjlkNzc3Mzg4MGNlNmI5ZCIsImlhdCI6MTc3ODUyNTc0NS41MjcyMDcsIm5iZiI6MTc3ODUyNTc0NS41MjcyMTIsImV4cCI6MTc3ODY5ODU0NS41MTU3NzMsInN1YiI6IjEiLCJzY29wZXMiOltdfQ.Gs7uFL5piONYB5GXBFLwibRGCqDbRSzlitXItDgogD2RpyKwhcZ4N0TOy4kBjOQtsoq3yMpj_-ipbb4Bhlfc59Wov-oxD_a7SitrpFT0x-DdWKQErkk_lyJlu_f0cuq12gPRLeNlIvm0lpSaoRVE6MfvA2R4Qe51pf0saHauhvxmd54OM8YKpMw7NjymXcT7gDapcrJUeHv7fZRTX4RYXq1vqL1Bh72LUSjm9lm4y96lO4zj7dkUvkajeI1deQePi6j8H_5Tk2AWRUSxdKqQcT7f9rc-lBe84A03pb_aXh4jYtsr79WGxs1sFI838Mf5SuWyPdOOCPw5ctPUHxOFsRzoW3LeC9qyOIzC7Lt_ikUbkZM6_SQBBsOazkLasMmnurs0EpCu-vDIHXkMC8ng_5uYRTfGmaleZEzstJjXDaG0QTJ4_Wq2CDSspqYoXoAwDXNtngpwTz5att5vNSFk4E_v-WO-JQ6AoR9REWwpNGZNCZVvxBV9Mc-ETBd1-AqkucqB-ywSAS2dck43JDzFtDdr9IR6hYWMmN-RXDtCKkarVlKtc1c706wmAgseD5wVfAwQk0kpQIr17P8CGNmy-44MIQSUwomEGvfGp49aDMlO5yG-XoYDdckCJPHiPLNxOdiyffaIjXAtOyGZ-8S_yNowDmB4VeAJz1_CuKS1jOI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"admin@localhost.com\",\n    \"password\": \"@dmin123\",\n    \"remember_me\": true\n}"
+						},
+						"url": {
+							"raw": "{{baseurl}}/{{version}}/auth/me",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"{{version}}",
+								"auth",
+								"me"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Me",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\":\"admin@localhost.com\",\n    \"password\": \"@dmin123\",\n    \"remember_me\": true\n}"
+								},
+								"url": {
+									"raw": "{{baseurl}}/{{version}}/auth/me",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"{{version}}",
+										"auth",
+										"me"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"domain": "",
+									"path": ""
+								}
+							],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"Admin User\",\n        \"email\": \"admin@localhost.com\",\n        \"role\": \"admin\",\n        \"is_admin\": true,\n        \"is_user\": false,\n        \"email_verified_at\": \"2026-05-11T13:06:49.000000Z\",\n        \"created_at\": \"2026-05-11T13:06:49.000000Z\",\n        \"updated_at\": \"2026-05-11T13:06:49.000000Z\"\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "List",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIwMTllMTgyMC0wMTZhLTcwNjItOWI2MC02NmM2NWYzZWYzNTgiLCJqdGkiOiIzMTk4N2M0ZDY5YTMwNTI3NzI2ZDljODcxZmU2MTIyYmE1ZGI1ZDcwYzMzMTczZTkzYWQ4NzE1MmM5Y2Q4YTcxOTJkOWJhYTkyZWE3MGVkMCIsImlhdCI6MTc3ODUyMjc2MC4zODc3ODksIm5iZiI6MTc3ODUyMjc2MC4zODc3OTMsImV4cCI6MTgxMDA1ODc2MC4zNzA4OTcsInN1YiI6IjEiLCJzY29wZXMiOltdfQ.j8yq-tcqJoJk4KjRsoA4KeSHYbaPjDCWonKVdf8evyYrQJrYqSy_E-z3Aj5G7SXsK6sbXvGyWD1glOnlZZvIUVf7YKipL685W8dCOjsZr4Vt9XVy3NKIj83L8Cgt4LXN4Z0JDt4rmqFW6szNLjZgFj26dChu32C_TH7t4l1yN8Y6vKuwJNNZw3ubQAZ3YaXLfCAZqQJTd3V1VHsUzcdtWGZYZMpZAjSB4hlDLI1UoDz4T-JPmQlneO8RSMs72k8H9I5dnnfluXpYqifhKQngGQ048QfGd4nCdIk--uvrKBjvBXdlLSoIkg0YCLnzrSr0WY6eoF1cllDQq7D6tj4EuW7DMa__y_lKbgjYAOel3SYY54tK3dnEXopNZxBv-hbaMF9qhY9q66isXM9P5oCBj01dA7nmnKVGDI5zrYLDbxS28Wi8k5uUA5O93G0LYTwccv-Muz1qSPlFAFB9C58sXp-CYTM34GEg56IyYnB6LMln0HqkQJDY1CpTd2x50PejlIpCGQDsSF9EkZCrDxgOEdlDiOU1wUxpPLcFThx2srsLz53oO0ZWs9dzOe_apKQUtHAkJ5pTBECmCNaXOslo3abSDAaV1j5SnPyyI8SjC5oyviNC8ZieSLN0PXGLIjUbtUZYgY1FYlSiEytfsE2VrkRemoMuiv7YbxUhEFh-5qc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"search\": \"\", // sometime\n    \"available_only\": true // sometime\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/{{version}}/products?per_page=20&page=2",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"{{version}}",
+								"products"
+							],
+							"query": [
+								{
+									"key": "per_page",
+									"value": "20"
+								},
+								{
+									"key": "page",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "List",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"search\": \"\", // sometime\n    \"available_only\": true // sometime\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseurl}}/{{version}}/products?per_page=20&page=2",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"{{version}}",
+										"products"
+									],
+									"query": [
+										{
+											"key": "per_page",
+											"value": "20"
+										},
+										{
+											"key": "page",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"domain": "",
+									"path": ""
+								}
+							],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"Coke\",\n            \"description\": null,\n            \"price\": 3.99,\n            \"quantity_available\": 13,\n            \"is_available\": true,\n            \"created_at\": null,\n            \"updated_at\": \"2026-05-11T18:16:11.000000Z\"\n        },\n        {\n            \"id\": 10,\n            \"name\": \"Red Bull\",\n            \"description\": null,\n            \"price\": 5.5,\n            \"quantity_available\": 14,\n            \"is_available\": true,\n            \"created_at\": null,\n            \"updated_at\": null\n        },\n        {\n            \"id\": 9,\n            \"name\": \"KitKat\",\n            \"description\": null,\n            \"price\": 1.85,\n            \"quantity_available\": 22,\n            \"is_available\": true,\n            \"created_at\": null,\n            \"updated_at\": null\n        },\n        {\n            \"id\": 8,\n            \"name\": \"Snickers Bar\",\n            \"description\": null,\n            \"price\": 1.99,\n            \"quantity_available\": 30,\n            \"is_available\": true,\n            \"created_at\": null,\n            \"updated_at\": null\n        },\n        {\n            \"id\": 7,\n            \"name\": \"Doritos Nacho\",\n            \"description\": null,\n            \"price\": 2.75,\n            \"quantity_available\": 18,\n            \"is_available\": true,\n            \"created_at\": null,\n            \"updated_at\": null\n        },\n        {\n            \"id\": 6,\n            \"name\": \"Lays Classic\",\n            \"description\": null,\n            \"price\": 2.5,\n            \"quantity_available\": 25,\n            \"is_available\": true,\n            \"created_at\": null,\n            \"updated_at\": null\n        },\n        {\n            \"id\": 5,\n            \"name\": \"Dr. Pepper\",\n            \"description\": null,\n            \"price\": 4.25,\n            \"quantity_available\": 8,\n            \"is_available\": true,\n            \"created_at\": null,\n            \"updated_at\": null\n        },\n        {\n            \"id\": 4,\n            \"name\": \"Sprite\",\n            \"description\": null,\n            \"price\": 3.5,\n            \"quantity_available\": 10,\n            \"is_available\": true,\n            \"created_at\": null,\n            \"updated_at\": null\n        },\n        {\n            \"id\": 3,\n            \"name\": \"Water\",\n            \"description\": null,\n            \"price\": 0.5,\n            \"quantity_available\": 20,\n            \"is_available\": true,\n            \"created_at\": null,\n            \"updated_at\": null\n        },\n        {\n            \"id\": 2,\n            \"name\": \"Pepsi\",\n            \"description\": null,\n            \"price\": 6.885,\n            \"quantity_available\": 12,\n            \"is_available\": true,\n            \"created_at\": null,\n            \"updated_at\": null\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Show",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIwMTllMTgyMC0wMTZhLTcwNjItOWI2MC02NmM2NWYzZWYzNTgiLCJqdGkiOiI4Mjk3YTYwNmM4ZWViZGMyODM4YjA1MzU2NzBjZTU5YjQwNTY2NjE4N2ZlNmI5ZDBlNWVhZWM3YWFmZTMzYjk2MzVlNjU5YjFmMzk0ZDcxNiIsImlhdCI6MTc3ODUyMzI0Mi41ODk3MzMsIm5iZiI6MTc3ODUyMzI0Mi41ODk3MzgsImV4cCI6MTgxMDA1OTI0Mi41ODA2NDYsInN1YiI6IjEiLCJzY29wZXMiOltdfQ.E93pOrpZ0j6r_PGn8JkYUhJmzVvUpE1im9vZIp8V_fPUQgN7Hv4ZpcaHj6Z1KBKezlSDDImTeW6a1PxpcJ58faLj_CgoFLQowgmhEbFh4tKfCImOZ5VyRjaTHFdc5dz_xXHxgeutc79jAakNJe7nZizy-vEifc9XHLYoXR0eSfbIDM1kTqUMurLYryr-9UCxSNJII2A15yVKAOetJdWFeAFU-TIPwMJZPfue-1pa3VYjklHqMUtM2-LXl8h1YHe5sG_2pta5cZCN9pzVBFYMO-1ZRjbSYhFgo3QJLjJDvKyb176mwILb2-faCh2fPSA4jKdqf8MkTRXLZjpfnwgVrp691y1LLKbTR9pTvF6iRWGFITkGXzjHecdEpjqGUjP9fOlQtLyDKLYExZPbvSuxvHRDcSQEr2N3kvMdcASzHza_OhFk4asxQqyY-tKTvL9_XnMkxIjc2b2YqDIVhhTJ8RfeI6OMGTtx3iigR-EwPaduM1x-eBpdK4J-w9vIXNwRUoXeh9kwnvJyi4ArK6glZ2nwH-1yY-jL4wwZhEaRC_aEBZXkdVhPLsNUuVyrRElaYE0vkRuT3Nvnv7NY-NosqQy91uCDEtGQ_aJChPVX8QObGHuP0o_AQJPv5D6CbgzEU7EYxQP2HT5GgIwzJSdu8mtFzgAGYZgErnTVIsl0aiU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/{{version}}/products/1",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"{{version}}",
+								"products",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Show",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseurl}}/{{version}}/products/1",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"{{version}}",
+										"products",
+										"1"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"domain": "",
+									"path": ""
+								}
+							],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"Coke\",\n        \"description\": null,\n        \"price\": 3.99,\n        \"quantity_available\": 15,\n        \"is_available\": true,\n        \"created_at\": null,\n        \"updated_at\": null\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Purchase",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIwMTllMTgyMC0wMTZhLTcwNjItOWI2MC02NmM2NWYzZWYzNTgiLCJqdGkiOiIzMTk4N2M0ZDY5YTMwNTI3NzI2ZDljODcxZmU2MTIyYmE1ZGI1ZDcwYzMzMTczZTkzYWQ4NzE1MmM5Y2Q4YTcxOTJkOWJhYTkyZWE3MGVkMCIsImlhdCI6MTc3ODUyMjc2MC4zODc3ODksIm5iZiI6MTc3ODUyMjc2MC4zODc3OTMsImV4cCI6MTgxMDA1ODc2MC4zNzA4OTcsInN1YiI6IjEiLCJzY29wZXMiOltdfQ.j8yq-tcqJoJk4KjRsoA4KeSHYbaPjDCWonKVdf8evyYrQJrYqSy_E-z3Aj5G7SXsK6sbXvGyWD1glOnlZZvIUVf7YKipL685W8dCOjsZr4Vt9XVy3NKIj83L8Cgt4LXN4Z0JDt4rmqFW6szNLjZgFj26dChu32C_TH7t4l1yN8Y6vKuwJNNZw3ubQAZ3YaXLfCAZqQJTd3V1VHsUzcdtWGZYZMpZAjSB4hlDLI1UoDz4T-JPmQlneO8RSMs72k8H9I5dnnfluXpYqifhKQngGQ048QfGd4nCdIk--uvrKBjvBXdlLSoIkg0YCLnzrSr0WY6eoF1cllDQq7D6tj4EuW7DMa__y_lKbgjYAOel3SYY54tK3dnEXopNZxBv-hbaMF9qhY9q66isXM9P5oCBj01dA7nmnKVGDI5zrYLDbxS28Wi8k5uUA5O93G0LYTwccv-Muz1qSPlFAFB9C58sXp-CYTM34GEg56IyYnB6LMln0HqkQJDY1CpTd2x50PejlIpCGQDsSF9EkZCrDxgOEdlDiOU1wUxpPLcFThx2srsLz53oO0ZWs9dzOe_apKQUtHAkJ5pTBECmCNaXOslo3abSDAaV1j5SnPyyI8SjC5oyviNC8ZieSLN0PXGLIjUbtUZYgY1FYlSiEytfsE2VrkRemoMuiv7YbxUhEFh-5qc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"quantity\" : 2,\n    \"amount_paid\": 100\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/{{version}}/products/1/purchase",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"{{version}}",
+								"products",
+								"1",
+								"purchase"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Purchase",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"quantity\" : 2,\n    \"amount_paid\": 100\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseurl}}/{{version}}/products/1/purchase",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"{{version}}",
+										"products",
+										"1",
+										"purchase"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"domain": "",
+									"path": ""
+								}
+							],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"Purchase successful\",\n    \"data\": {\n        \"transaction\": {\n            \"id\": 4,\n            \"user_id\": 1,\n            \"product_id\": 1,\n            \"unit_price\": 3.99,\n            \"quantity\": 2,\n            \"total_price\": 7.98,\n            \"amount_paid\": 100,\n            \"change_given\": 92.02,\n            \"status\": \"completed\",\n            \"created_at\": \"2026-05-11T18:16:11.000000Z\",\n            \"updated_at\": \"2026-05-11T18:16:11.000000Z\"\n        },\n        \"change_given\": 92.02,\n        \"product_remaining\": 13\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Store",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIwMTllMTgyMC0wMTZhLTcwNjItOWI2MC02NmM2NWYzZWYzNTgiLCJqdGkiOiI4Mjk3YTYwNmM4ZWViZGMyODM4YjA1MzU2NzBjZTU5YjQwNTY2NjE4N2ZlNmI5ZDBlNWVhZWM3YWFmZTMzYjk2MzVlNjU5YjFmMzk0ZDcxNiIsImlhdCI6MTc3ODUyMzI0Mi41ODk3MzMsIm5iZiI6MTc3ODUyMzI0Mi41ODk3MzgsImV4cCI6MTgxMDA1OTI0Mi41ODA2NDYsInN1YiI6IjEiLCJzY29wZXMiOltdfQ.E93pOrpZ0j6r_PGn8JkYUhJmzVvUpE1im9vZIp8V_fPUQgN7Hv4ZpcaHj6Z1KBKezlSDDImTeW6a1PxpcJ58faLj_CgoFLQowgmhEbFh4tKfCImOZ5VyRjaTHFdc5dz_xXHxgeutc79jAakNJe7nZizy-vEifc9XHLYoXR0eSfbIDM1kTqUMurLYryr-9UCxSNJII2A15yVKAOetJdWFeAFU-TIPwMJZPfue-1pa3VYjklHqMUtM2-LXl8h1YHe5sG_2pta5cZCN9pzVBFYMO-1ZRjbSYhFgo3QJLjJDvKyb176mwILb2-faCh2fPSA4jKdqf8MkTRXLZjpfnwgVrp691y1LLKbTR9pTvF6iRWGFITkGXzjHecdEpjqGUjP9fOlQtLyDKLYExZPbvSuxvHRDcSQEr2N3kvMdcASzHza_OhFk4asxQqyY-tKTvL9_XnMkxIjc2b2YqDIVhhTJ8RfeI6OMGTtx3iigR-EwPaduM1x-eBpdK4J-w9vIXNwRUoXeh9kwnvJyi4ArK6glZ2nwH-1yY-jL4wwZhEaRC_aEBZXkdVhPLsNUuVyrRElaYE0vkRuT3Nvnv7NY-NosqQy91uCDEtGQ_aJChPVX8QObGHuP0o_AQJPv5D6CbgzEU7EYxQP2HT5GgIwzJSdu8mtFzgAGYZgErnTVIsl0aiU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Test Product 1\",\n    \"description\" : \"test description\",\n    \"price\" : 12.42,\n    \"quantity_available\": 40\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/{{version}}/products",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"{{version}}",
+								"products"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Store",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Test Product 1\",\n    \"description\" : \"test description\",\n    \"price\" : 12.42,\n    \"quantity_available\": 40\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseurl}}/{{version}}/products",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"{{version}}",
+										"products"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"domain": "",
+									"path": ""
+								}
+							],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"Product created successfully\",\n    \"data\": {\n        \"id\": 31,\n        \"name\": \"Test Product 1\",\n        \"description\": null,\n        \"price\": 12.42,\n        \"quantity_available\": 40,\n        \"is_available\": true,\n        \"created_at\": \"2026-05-11T18:18:08.000000Z\",\n        \"updated_at\": \"2026-05-11T18:18:08.000000Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIwMTllMTgyMC0wMTZhLTcwNjItOWI2MC02NmM2NWYzZWYzNTgiLCJqdGkiOiI4Mjk3YTYwNmM4ZWViZGMyODM4YjA1MzU2NzBjZTU5YjQwNTY2NjE4N2ZlNmI5ZDBlNWVhZWM3YWFmZTMzYjk2MzVlNjU5YjFmMzk0ZDcxNiIsImlhdCI6MTc3ODUyMzI0Mi41ODk3MzMsIm5iZiI6MTc3ODUyMzI0Mi41ODk3MzgsImV4cCI6MTgxMDA1OTI0Mi41ODA2NDYsInN1YiI6IjEiLCJzY29wZXMiOltdfQ.E93pOrpZ0j6r_PGn8JkYUhJmzVvUpE1im9vZIp8V_fPUQgN7Hv4ZpcaHj6Z1KBKezlSDDImTeW6a1PxpcJ58faLj_CgoFLQowgmhEbFh4tKfCImOZ5VyRjaTHFdc5dz_xXHxgeutc79jAakNJe7nZizy-vEifc9XHLYoXR0eSfbIDM1kTqUMurLYryr-9UCxSNJII2A15yVKAOetJdWFeAFU-TIPwMJZPfue-1pa3VYjklHqMUtM2-LXl8h1YHe5sG_2pta5cZCN9pzVBFYMO-1ZRjbSYhFgo3QJLjJDvKyb176mwILb2-faCh2fPSA4jKdqf8MkTRXLZjpfnwgVrp691y1LLKbTR9pTvF6iRWGFITkGXzjHecdEpjqGUjP9fOlQtLyDKLYExZPbvSuxvHRDcSQEr2N3kvMdcASzHza_OhFk4asxQqyY-tKTvL9_XnMkxIjc2b2YqDIVhhTJ8RfeI6OMGTtx3iigR-EwPaduM1x-eBpdK4J-w9vIXNwRUoXeh9kwnvJyi4ArK6glZ2nwH-1yY-jL4wwZhEaRC_aEBZXkdVhPLsNUuVyrRElaYE0vkRuT3Nvnv7NY-NosqQy91uCDEtGQ_aJChPVX8QObGHuP0o_AQJPv5D6CbgzEU7EYxQP2HT5GgIwzJSdu8mtFzgAGYZgErnTVIsl0aiU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Soft Drinking\",\n    \"quantity_available\": 34\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/{{version}}/products/31",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"{{version}}",
+								"products",
+								"31"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Soft Drinking\",\n    \"quantity_available\": 34\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseurl}}/{{version}}/products/31",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"{{version}}",
+										"products",
+										"31"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"domain": "",
+									"path": ""
+								}
+							],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"Product updated successfully\",\n    \"data\": {\n        \"id\": 31,\n        \"name\": \"Soft Drinking\",\n        \"price\": \"12.420\",\n        \"quantity_available\": 34,\n        \"created_at\": \"2026-05-11T18:18:08.000000Z\",\n        \"updated_at\": \"2026-05-11T18:19:52.000000Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Stats",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIwMTllMTgyMC0wMTZhLTcwNjItOWI2MC02NmM2NWYzZWYzNTgiLCJqdGkiOiI4Mjk3YTYwNmM4ZWViZGMyODM4YjA1MzU2NzBjZTU5YjQwNTY2NjE4N2ZlNmI5ZDBlNWVhZWM3YWFmZTMzYjk2MzVlNjU5YjFmMzk0ZDcxNiIsImlhdCI6MTc3ODUyMzI0Mi41ODk3MzMsIm5iZiI6MTc3ODUyMzI0Mi41ODk3MzgsImV4cCI6MTgxMDA1OTI0Mi41ODA2NDYsInN1YiI6IjEiLCJzY29wZXMiOltdfQ.E93pOrpZ0j6r_PGn8JkYUhJmzVvUpE1im9vZIp8V_fPUQgN7Hv4ZpcaHj6Z1KBKezlSDDImTeW6a1PxpcJ58faLj_CgoFLQowgmhEbFh4tKfCImOZ5VyRjaTHFdc5dz_xXHxgeutc79jAakNJe7nZizy-vEifc9XHLYoXR0eSfbIDM1kTqUMurLYryr-9UCxSNJII2A15yVKAOetJdWFeAFU-TIPwMJZPfue-1pa3VYjklHqMUtM2-LXl8h1YHe5sG_2pta5cZCN9pzVBFYMO-1ZRjbSYhFgo3QJLjJDvKyb176mwILb2-faCh2fPSA4jKdqf8MkTRXLZjpfnwgVrp691y1LLKbTR9pTvF6iRWGFITkGXzjHecdEpjqGUjP9fOlQtLyDKLYExZPbvSuxvHRDcSQEr2N3kvMdcASzHza_OhFk4asxQqyY-tKTvL9_XnMkxIjc2b2YqDIVhhTJ8RfeI6OMGTtx3iigR-EwPaduM1x-eBpdK4J-w9vIXNwRUoXeh9kwnvJyi4ArK6glZ2nwH-1yY-jL4wwZhEaRC_aEBZXkdVhPLsNUuVyrRElaYE0vkRuT3Nvnv7NY-NosqQy91uCDEtGQ_aJChPVX8QObGHuP0o_AQJPv5D6CbgzEU7EYxQP2HT5GgIwzJSdu8mtFzgAGYZgErnTVIsl0aiU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Test Product 1\",\n    \"description\" : \"test description\",\n    \"price\" : 12.42,\n    \"quantity_available\": 40\n}"
+						},
+						"url": {
+							"raw": "{{baseurl}}/{{version}}/statistics/products",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"{{version}}",
+								"statistics",
+								"products"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Stats",
+							"originalRequest": {
+								"method": "GET",
+								"header": []
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"domain": "",
+									"path": ""
+								}
+							],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"total_products\": 30,\n        \"available_products\": 30,\n        \"out_of_stock_products\": 0,\n        \"total_transactions\": 3,\n        \"today_revenue\": \"104.111\",\n        \"total_revenue\": \"104.111\",\n        \"average_transaction_value\": \"34.7036667\",\n        \"top_selling_products\": [\n            {\n                \"product\": {\n                    \"id\": 23,\n                    \"name\": \"Qui Snack\",\n                    \"price\": \"14.747\"\n                },\n                \"total_sold\": \"3\",\n                \"revenue\": \"44.241\"\n            },\n            {\n                \"product\": {\n                    \"id\": 16,\n                    \"name\": \"Et Bar\",\n                    \"price\": \"25.945\"\n                },\n                \"total_sold\": \"2\",\n                \"revenue\": \"51.890\"\n            },\n            {\n                \"product\": {\n                    \"id\": 1,\n                    \"name\": \"Coke\",\n                    \"price\": \"3.990\"\n                },\n                \"total_sold\": \"2\",\n                \"revenue\": \"7.980\"\n            }\n        ]\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Transaction",
+			"item": [
+				{
+					"name": "List",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIwMTllMTgyMC0wMTZhLTcwNjItOWI2MC02NmM2NWYzZWYzNTgiLCJqdGkiOiI4Mjk3YTYwNmM4ZWViZGMyODM4YjA1MzU2NzBjZTU5YjQwNTY2NjE4N2ZlNmI5ZDBlNWVhZWM3YWFmZTMzYjk2MzVlNjU5YjFmMzk0ZDcxNiIsImlhdCI6MTc3ODUyMzI0Mi41ODk3MzMsIm5iZiI6MTc3ODUyMzI0Mi41ODk3MzgsImV4cCI6MTgxMDA1OTI0Mi41ODA2NDYsInN1YiI6IjEiLCJzY29wZXMiOltdfQ.E93pOrpZ0j6r_PGn8JkYUhJmzVvUpE1im9vZIp8V_fPUQgN7Hv4ZpcaHj6Z1KBKezlSDDImTeW6a1PxpcJ58faLj_CgoFLQowgmhEbFh4tKfCImOZ5VyRjaTHFdc5dz_xXHxgeutc79jAakNJe7nZizy-vEifc9XHLYoXR0eSfbIDM1kTqUMurLYryr-9UCxSNJII2A15yVKAOetJdWFeAFU-TIPwMJZPfue-1pa3VYjklHqMUtM2-LXl8h1YHe5sG_2pta5cZCN9pzVBFYMO-1ZRjbSYhFgo3QJLjJDvKyb176mwILb2-faCh2fPSA4jKdqf8MkTRXLZjpfnwgVrp691y1LLKbTR9pTvF6iRWGFITkGXzjHecdEpjqGUjP9fOlQtLyDKLYExZPbvSuxvHRDcSQEr2N3kvMdcASzHza_OhFk4asxQqyY-tKTvL9_XnMkxIjc2b2YqDIVhhTJ8RfeI6OMGTtx3iigR-EwPaduM1x-eBpdK4J-w9vIXNwRUoXeh9kwnvJyi4ArK6glZ2nwH-1yY-jL4wwZhEaRC_aEBZXkdVhPLsNUuVyrRElaYE0vkRuT3Nvnv7NY-NosqQy91uCDEtGQ_aJChPVX8QObGHuP0o_AQJPv5D6CbgzEU7EYxQP2HT5GgIwzJSdu8mtFzgAGYZgErnTVIsl0aiU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Soft Drinking\",\n    \"quantity_available\": 34\n}"
+						},
+						"url": {
+							"raw": "{{baseurl}}/{{version}}/transactions?per_page=20&page=1",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"{{version}}",
+								"transactions"
+							],
+							"query": [
+								{
+									"key": "per_page",
+									"value": "20"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "List",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Soft Drinking\",\n    \"quantity_available\": 34\n}"
+								},
+								"url": {
+									"raw": "{{baseurl}}/{{version}}/transactions",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"{{version}}",
+										"transactions"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"domain": "",
+									"path": ""
+								}
+							],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": 4,\n            \"user_id\": 1,\n            \"product_id\": 1,\n            \"unit_price\": 3.99,\n            \"quantity\": 2,\n            \"total_price\": 7.98,\n            \"amount_paid\": 100,\n            \"change_given\": 92.02,\n            \"status\": \"completed\",\n            \"created_at\": \"2026-05-11T18:16:11.000000Z\",\n            \"updated_at\": \"2026-05-11T18:16:11.000000Z\"\n        },\n        {\n            \"id\": 3,\n            \"user_id\": 1,\n            \"product_id\": 16,\n            \"unit_price\": 25.945,\n            \"quantity\": 2,\n            \"total_price\": 51.89,\n            \"amount_paid\": 60,\n            \"change_given\": 8.11,\n            \"status\": \"completed\",\n            \"created_at\": \"2026-05-11T13:35:32.000000Z\",\n            \"updated_at\": \"2026-05-11T13:35:32.000000Z\"\n        },\n        {\n            \"id\": 2,\n            \"user_id\": 2,\n            \"product_id\": 23,\n            \"unit_price\": 0,\n            \"quantity\": 3,\n            \"total_price\": 44.241,\n            \"amount_paid\": 50,\n            \"change_given\": 5.759,\n            \"status\": \"completed\",\n            \"created_at\": \"2026-05-11T13:18:15.000000Z\",\n            \"updated_at\": \"2026-05-11T13:18:15.000000Z\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Stats",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIwMTllMTgyMC0wMTZhLTcwNjItOWI2MC02NmM2NWYzZWYzNTgiLCJqdGkiOiI4Mjk3YTYwNmM4ZWViZGMyODM4YjA1MzU2NzBjZTU5YjQwNTY2NjE4N2ZlNmI5ZDBlNWVhZWM3YWFmZTMzYjk2MzVlNjU5YjFmMzk0ZDcxNiIsImlhdCI6MTc3ODUyMzI0Mi41ODk3MzMsIm5iZiI6MTc3ODUyMzI0Mi41ODk3MzgsImV4cCI6MTgxMDA1OTI0Mi41ODA2NDYsInN1YiI6IjEiLCJzY29wZXMiOltdfQ.E93pOrpZ0j6r_PGn8JkYUhJmzVvUpE1im9vZIp8V_fPUQgN7Hv4ZpcaHj6Z1KBKezlSDDImTeW6a1PxpcJ58faLj_CgoFLQowgmhEbFh4tKfCImOZ5VyRjaTHFdc5dz_xXHxgeutc79jAakNJe7nZizy-vEifc9XHLYoXR0eSfbIDM1kTqUMurLYryr-9UCxSNJII2A15yVKAOetJdWFeAFU-TIPwMJZPfue-1pa3VYjklHqMUtM2-LXl8h1YHe5sG_2pta5cZCN9pzVBFYMO-1ZRjbSYhFgo3QJLjJDvKyb176mwILb2-faCh2fPSA4jKdqf8MkTRXLZjpfnwgVrp691y1LLKbTR9pTvF6iRWGFITkGXzjHecdEpjqGUjP9fOlQtLyDKLYExZPbvSuxvHRDcSQEr2N3kvMdcASzHza_OhFk4asxQqyY-tKTvL9_XnMkxIjc2b2YqDIVhhTJ8RfeI6OMGTtx3iigR-EwPaduM1x-eBpdK4J-w9vIXNwRUoXeh9kwnvJyi4ArK6glZ2nwH-1yY-jL4wwZhEaRC_aEBZXkdVhPLsNUuVyrRElaYE0vkRuT3Nvnv7NY-NosqQy91uCDEtGQ_aJChPVX8QObGHuP0o_AQJPv5D6CbgzEU7EYxQP2HT5GgIwzJSdu8mtFzgAGYZgErnTVIsl0aiU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Soft Drinking\",\n    \"quantity_available\": 34\n}"
+						},
+						"url": {
+							"raw": "{{baseurl}}/{{version}}/statistics/transactions",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"{{version}}",
+								"statistics",
+								"transactions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Stats",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Soft Drinking\",\n    \"quantity_available\": 34\n}"
+								},
+								"url": {
+									"raw": "{{baseurl}}/{{version}}/statistics/transactions",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"{{version}}",
+										"statistics",
+										"transactions"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"domain": "",
+									"path": ""
+								}
+							],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"total_transactions\": 3,\n        \"total_revenue\": 104.111,\n        \"average_transaction_value\": 34.704,\n        \"completed_transactions\": 3,\n        \"pending_transactions\": 0,\n        \"failed_transactions\": 0,\n        \"top_products\": [\n            {\n                \"product_id\": 23,\n                \"product_name\": \"Qui Snack\",\n                \"total_sold\": \"3\",\n                \"revenue\": 44.241\n            },\n            {\n                \"product_id\": 1,\n                \"product_name\": \"Coke\",\n                \"total_sold\": \"2\",\n                \"revenue\": 7.98\n            },\n            {\n                \"product_id\": 16,\n                \"product_name\": \"Et Bar\",\n                \"total_sold\": \"2\",\n                \"revenue\": 51.89\n            }\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Detail",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIwMTllMTgyMC0wMTZhLTcwNjItOWI2MC02NmM2NWYzZWYzNTgiLCJqdGkiOiI4Mjk3YTYwNmM4ZWViZGMyODM4YjA1MzU2NzBjZTU5YjQwNTY2NjE4N2ZlNmI5ZDBlNWVhZWM3YWFmZTMzYjk2MzVlNjU5YjFmMzk0ZDcxNiIsImlhdCI6MTc3ODUyMzI0Mi41ODk3MzMsIm5iZiI6MTc3ODUyMzI0Mi41ODk3MzgsImV4cCI6MTgxMDA1OTI0Mi41ODA2NDYsInN1YiI6IjEiLCJzY29wZXMiOltdfQ.E93pOrpZ0j6r_PGn8JkYUhJmzVvUpE1im9vZIp8V_fPUQgN7Hv4ZpcaHj6Z1KBKezlSDDImTeW6a1PxpcJ58faLj_CgoFLQowgmhEbFh4tKfCImOZ5VyRjaTHFdc5dz_xXHxgeutc79jAakNJe7nZizy-vEifc9XHLYoXR0eSfbIDM1kTqUMurLYryr-9UCxSNJII2A15yVKAOetJdWFeAFU-TIPwMJZPfue-1pa3VYjklHqMUtM2-LXl8h1YHe5sG_2pta5cZCN9pzVBFYMO-1ZRjbSYhFgo3QJLjJDvKyb176mwILb2-faCh2fPSA4jKdqf8MkTRXLZjpfnwgVrp691y1LLKbTR9pTvF6iRWGFITkGXzjHecdEpjqGUjP9fOlQtLyDKLYExZPbvSuxvHRDcSQEr2N3kvMdcASzHza_OhFk4asxQqyY-tKTvL9_XnMkxIjc2b2YqDIVhhTJ8RfeI6OMGTtx3iigR-EwPaduM1x-eBpdK4J-w9vIXNwRUoXeh9kwnvJyi4ArK6glZ2nwH-1yY-jL4wwZhEaRC_aEBZXkdVhPLsNUuVyrRElaYE0vkRuT3Nvnv7NY-NosqQy91uCDEtGQ_aJChPVX8QObGHuP0o_AQJPv5D6CbgzEU7EYxQP2HT5GgIwzJSdu8mtFzgAGYZgErnTVIsl0aiU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Soft Drinking\",\n    \"quantity_available\": 34\n}"
+						},
+						"url": {
+							"raw": "{{baseurl}}/{{version}}/transactions/1",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"{{version}}",
+								"transactions",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseurl",
+			"value": "",
+			"type": "default"
+		},
+		{
+			"key": "version",
+			"value": "",
+			"type": "default"
+		}
+	]
+}
