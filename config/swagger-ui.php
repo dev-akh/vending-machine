@@ -3,8 +3,6 @@
 use Wotz\SwaggerUi\Http\Middleware\EnsureUserIsAuthorized;
 
 return [
-    'files' => [
-        [
             /*
              * The path where the swagger file is served.
              */
@@ -19,7 +17,10 @@ return [
              * The versions of the swagger file. The key is the version name and the value is the path to the file.
              */
             'versions' => [
-                'v1' => resource_path('swagger/openapi.json'),
+                // 'v1' => resource_path('swagger/openapi.json'),
+                'v1' => [
+                    'file' => resource_path('swagger/openapi.json'),
+                ],
             ],
 
             /*
@@ -77,26 +78,4 @@ return [
              * The content of the file will be read and added into a style-tag on the swagger-ui page.
              */
             'stylesheet' => null,
-        ],
-    ],
-
-    'mcp' => [
-        /*
-         * Enable or disable the MCP server.
-         */
-        'enabled' => false,
-
-        /*
-         * The path where the swagger mcp server is served.
-         */
-        'path' => 'swagger-mcp',
-
-        /*
-         * The middleware that is applied to the swagger mcp server route.
-         */
-        'middleware' => [
-            'auth:api',
-            EnsureUserIsAuthorized::class,
-        ],
-    ],
-];
+        ];

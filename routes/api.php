@@ -31,8 +31,14 @@ Route::prefix('v1')->group(function () {
 });
 
 if (app()->environment('local', 'testing')) {
-    Route::get('/api-documentation', function () {
-        return view('swagger-ui::index');
+    Route::get('/documentation', function () {
+        $config = config('swagger-ui');
+        if (!isset($config['versions'])) {
+            abort(500, 'Swagger UI configuration is missing the "versions" key.');
+        }
+        return view('swagger-ui::index', [
+           'data' => $config
+        ]);
     })->name('api.documentation');
 
     Route::get('/api/docs', function () {
