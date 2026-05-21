@@ -97,5 +97,5 @@ For now, just put a short and concise branch name such as:
 -   Commit to feature branches, not directly to _dev_
 
 ## Developer Info
-- Name: `Aung Kyaw Htwe (Austine)`
+- Name: `Aung Kyaw Htwe (Lyle Austin)`
 - Email: `dev.aungkyawhtwe@gmail.com`
